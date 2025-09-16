@@ -130,7 +130,7 @@ const CrosswordGame = () => {
       setCompleted(true);
       setModalInfo({
         show: true,
-        message: 'Parabéns! Você completou a cruzadinha corretamente e ganhou um vale beijo! 💕',
+        message: '🎉 Parabéns, meu amor! Você completou a nossa cruzadinha e ganhou um vale beijo especial 💕\n\nHoje é o seu dia, e eu quero te lembrar o quanto você é importante pra mim e o quanto você me faz tão bem.\n\nEsse presente foi feito com todo amor e carinho, para que juntos possamos reviver nossas lembranças onde pude te viver em cada momento.\n\nVocê é o meu presente da vida, e quero te viver em cada instante, em cada sorriso e em cada capítulo da nossa história.\n\nFeliz aniversário, meu amor! Eu te amo e te vivo intensamente ❤️',
       });
     } else {
       setModalInfo({
