@@ -8,7 +8,7 @@ export const words = {
     { word: 'MAIO', clue: '“O mês que tudo começou.”', row: 2, col: 4, number: 5 },
     { word: 'TRINTAEUM', clue: '“Dia do nosso primeiro date.”', row: 3, col: 9, number: 6 },
     { word: 'JULHO', clue: '“O mês do nosso sim.”', row: 5, col: 7, number: 7 },
-    { word: 'SÃOPAULO', clue: '“A viagem marcada para outubro que estamos ansiosos.”', row: 6, col: 0, number: 9 },
+    { word: 'SAOPAULO', clue: '“A viagem marcada para outubro que estamos ansiosos.”', row: 6, col: 0, number: 9 },
     { word: 'VINTESEIS', clue: '“Dia em que pedi você em namoro.”', row: 8, col: 5, number: 12 },
     { word: 'JORGINHO', clue: '“Nosso filhinho de pelúcia.”', row: 12, col: 0, number: 16 },
     { word: 'RAPAIZINHA', clue: '“Como te chamo quando finjo discutir.”', row: 13, col: 9, number: 17 },

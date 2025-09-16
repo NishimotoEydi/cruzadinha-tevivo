@@ -230,6 +230,9 @@ const CrosswordGame = () => {
       <p style={{ ...styles.footerText, color: colors.text }}>
         Clique nas células para focar, digite letras (incluindo acentos). Use setas para navegar ou Tab. Divirta-se! 💕
       </p>
+      <p style={{ ...styles.footerText, color: colors.text }}>
+        Desenvolvido por seu Amorzinho
+      </p>
 
       {modalInfo.show && (
         <ResultModal
