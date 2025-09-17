@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useCrosswordGrid, words, GRID_SIZE } from './hooks/useCrosswordGrid';
+import backgroundImage from './assets/background.png';
 
 const colors = {
   primary: '#B39EB5',
@@ -111,7 +112,7 @@ const CrosswordGame = () => {
   };
 
   const toggleDirection = () => setDirection(dir => dir === 'horizontal' ? 'vertical' : 'horizontal');
-  
+
   const resetGame = () => {
     setGrid(Array(GRID_SIZE).fill().map(() => Array(GRID_SIZE).fill('')));
     setActiveCell({ row: 0, col: 0 });
@@ -130,7 +131,7 @@ const CrosswordGame = () => {
       setCompleted(true);
       setModalInfo({
         show: true,
-        message: '🎉 Parabéns, meu amor! Você completou a nossa cruzadinha e ganhou um vale beijo especial 💕\n\nHoje é o seu dia, e eu quero te lembrar o quanto você é importante pra mim e o quanto você me faz tão bem.\n\nEsse presente foi feito com todo amor e carinho, para que juntos possamos reviver nossas lembranças onde pude te viver em cada momento.\n\nVocê é o meu presente da vida, e quero te viver em cada instante, em cada sorriso e em cada capítulo da nossa história.\n\nFeliz aniversário, meu amor! Eu te amo e te vivo intensamente ❤️',
+        message: '🎉 Parabéns, meu amor! Você completou a nossa cruzadinha e ganhou um vale beijo especial e agora você pode resgatar o resto dos seus presentes 💕\n\nHoje é o seu dia, e eu quero te lembrar o quanto você é importante pra mim e o quanto você me faz tão bem.\n\nEsse presente foi feito com todo amor e carinho, para que juntos possamos reviver nossas lembranças onde pude te viver em cada momento.\n\nVocê é o meu presente da vida, e quero te viver em cada instante, em cada sorriso e em cada capítulo da nossa história.\n\nFeliz aniversário, meu amor! Eu te amo e te vivo intensamente ❤️',
       });
     } else {
       setModalInfo({
@@ -145,7 +146,7 @@ const CrosswordGame = () => {
   }
 
   return (
-    <div style={{ ...styles.container, backgroundColor: colors.background }}>
+    <div style={styles.container}>
       <h1 style={{ ...styles.heading, color: colors.primary }}>Te Vivo</h1>
 
       <div style={styles.contentWrapper}>
@@ -244,16 +245,9 @@ const CrosswordGame = () => {
       <style>
         {`
           :root {
-            --grid-size: 19;
-            --cell-size: calc((100vmin - 100px) / var(--grid-size));
+            --grid-size: ${GRID_SIZE};
           }
-          
-          @media (min-width: 768px) {
-            :root {
-              --cell-size: 30px;
-            }
-          }
-          
+
           .grid-container {
             border: 2px solid;
             border-radius: 10px;
@@ -262,37 +256,38 @@ const CrosswordGame = () => {
             flex-direction: column;
             width: fit-content;
             height: fit-content;
+            max-width: 95vw;
           }
-          
+
           .grid-cell {
-            width: var(--cell-size);
-            height: var(--cell-size);
+            width: 25px;
+            height: 25px;
             border: 1px solid;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: calc(var(--cell-size) * 0.6);
             font-weight: bold;
             margin: 1px;
             position: relative;
+            font-size: 1rem;
           }
           
           .cell-number {
             position: absolute;
             top: 2px;
             left: 2px;
-            font-size: calc(var(--cell-size) * 0.3);
+            font-size: 0.5rem;
           }
-          
+
           .cell-input {
             width: 100%;
             height: 100%;
             border: none;
             background: transparent;
             text-align: center;
-            font-size: calc(var(--cell-size) * 0.6);
             font-weight: bold;
             outline: none;
+            font-size: 1rem;
           }
 
           .controls-panel {
@@ -304,6 +299,19 @@ const CrosswordGame = () => {
           }
 
           @media (max-width: 767px) {
+            .grid-container {
+              padding: 5px;
+            }
+            .grid-cell {
+              width: calc(90vw / var(--grid-size));
+              height: calc(90vw / var(--grid-size));
+            }
+            .grid-cell, .cell-input {
+              font-size: calc(90vw / var(--grid-size) * 0.5);
+            }
+            .cell-number {
+              font-size: calc(90vw / var(--grid-size) * 0.2);
+            }
             .controls-panel {
               min-width: 100%;
               max-height: none;
@@ -321,6 +329,14 @@ const styles = {
     minHeight: '100vh',
     padding: '20px',
     fontFamily: 'Arial, sans-serif',
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   heading: {
     textAlign: 'center',
@@ -330,6 +346,8 @@ const styles = {
     justifyContent: 'center',
     gap: '20px',
     flexWrap: 'wrap',
+    maxWidth: '1200px',
+    width: '100%',
   },
   gridRow: {
     display: 'flex',
@@ -387,7 +405,7 @@ const modalStyles = {
     borderRadius: '10px',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
-    maxWidth: '80%',
+    maxWidth: '90%',
     minWidth: '250px',
   },
   content: {
